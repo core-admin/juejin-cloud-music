@@ -1,7 +1,8 @@
+import { useRoutes } from 'react-router-dom';
+import _routes from './routes';
 import { IconStyle } from './assets/iconfont/iconfont';
 import { GlobalStyle } from './style';
 import styled from 'styled-components';
-import React, { useState } from 'react';
 
 const HeaderWrapper = styled.div`
   z-index: 1;
@@ -25,15 +26,17 @@ const HeaderWrapper = styled.div`
 `;
 
 function App() {
+  const routes = useRoutes(_routes);
   return (
-    <div className='App'>
+    <>
       <IconStyle />
       <GlobalStyle />
       <HeaderWrapper blue>
         111
         <span className='action'>action</span>
       </HeaderWrapper>
-    </div>
+      {routes}
+    </>
   );
 }
 
