@@ -1,5 +1,7 @@
+import { memo } from 'react';
+
 function Singers() {
   return <div>Singers</div>;
 }
 
-export default Singers;
+export default memo(Singers);

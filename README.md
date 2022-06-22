@@ -94,23 +94,23 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <div className="App">
       <IconStyle />
       <GlobalStyle />
       <HeaderWrapper blue>
         111
-        <span className='action'>action</span>
+        <span className="action">action</span>
       </HeaderWrapper>
       {/* 
         作为组件的属性传递的优先级更高 但优先级不会高于组件定义时使用attrs方法设置的属性
         data-sid 并没有覆盖掉预定于的attrs中的 data-sid的值
       */}
-      <Body data-sid='222' className='my-body' style={{ color: 'red' }}>
+      <Body data-sid="222" className="my-body" style={{ color: 'red' }}>
         BODY
       </Body>
       <Body2>Body2Body2</Body2>
       {/* <MyImage /> */}
-      <Box h={boxH} className='box' />
+      <Box h={boxH} className="box" />
       <button onClick={changeHeight}>修改box的高度</button>
       <hr />
       <FadeInButton>112233</FadeInButton>
@@ -137,4 +137,24 @@ const ThemeComp = withTheme(props => {
 });
 
 export default App;
+```
+
+# eslint 问题
+
+eslint 错误：Using `babel-preset-react-app` requires that you specify `NODE_ENV` or `BABEL_ENV` environment variables. Valid values are "development", "test", and "production". Instead, received: undefined
+
+解决方式：https://github.com/facebook/create-react-app/issues/12070
+
+```json
+{
+  "eslintConfig": {
+    "extends": ["react-app"],
+    "parserOptions": {
+      "babelOptions": {
+        "presets": [["babel-preset-react-app", false], "babel-preset-react-app/prod"]
+      }
+    },
+    "rules": {}
+  }
+}
 ```

@@ -1,5 +1,7 @@
+import { memo } from 'react';
+
 function Recommend() {
-  return <div>Recommend</div>;
+  return <div>Recommend 111</div>;
 }
 
-export default Recommend;
+export default memo(Recommend);

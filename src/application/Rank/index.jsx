@@ -1,5 +1,7 @@
+import { memo } from 'react';
+
 function Rank() {
   return <div>Rank</div>;
 }
 
-export default Rank;
+export default memo(Rank);
